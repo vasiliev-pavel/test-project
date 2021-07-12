@@ -11,7 +11,7 @@ jsonData = json.dumps(data)
 print(type(jsonData))
 
 sock = socket.socket()
-sock.connect((socket.gethostbyname('http://vasilievpavel.pythonanywhere.com'), 5050))
+sock.connect((socket.gethostbyname('http://vasilievpavel.pythonanywhere.com'), 443))
 sock.sendall(bytes(jsonData,encoding="utf-8"))
 data = sock.recv(1024)
 print((data.decode('utf-8')))
