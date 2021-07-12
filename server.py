@@ -6,7 +6,7 @@ connection = sqlite3.connect('db.sqlite3')
 cursor = connection.cursor()
 
 sock = socket.socket()
-sock.bind(('localhost', 5050))
+sock.bind((socket.gethostname(), 5050))
 sock.listen(10)
 conn, addr = sock.accept()
 
