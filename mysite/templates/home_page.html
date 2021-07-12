@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+        font: 'Roboto';
+        color: white;
+        }
+
+        .device{
+        background-color: #323131;
+        width: 200px;
+        height: 150px;
+        display: block;
+        float: left;
+        margin-left: 5px;
+        }
+
+        .status1{
+        float: left;
+        display: block;
+        width: 35px;
+        height: 35px;
+        background: #83A7C9;
+        border-radius: 50%;
+        margin-left: 10px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+{% for device in devices %}
+<div class="device">
+    <p align="center">{{ device.serial_number}}</p>
+    {%if device.status_input1 == True%}
+    <div class="status1" style="background-color: green"></div>
+    {%else%}
+    <div class="status1" style="background-color: gray"></div>
+    {% endif %}
+
+    {%if device.status_output1 == True%}
+    <div class="status1" style="background-color: green"></div>
+    {%else%}
+    <div class="status1" style="background-color: gray"></div>
+    {% endif %}
+
+    {%if device.status_input2 == True%}
+    <div class="status1" style="background-color: green"></div>
+    {%else%}
+    <div class="status1" style="background-color: gray"></div>
+    {% endif %}
+    
+    {%if device.status_output2 == True%}
+    <div class="status1" style="background-color: green"></div>
+    {%else%}
+    <div class="status1" style="background-color: gray"></div>
+    {% endif %}
+
+    
+
+
+    <br>
+    <div style="margin: 30px 10px">
+        Voltage: {{device.voltage}}
+        <br>
+        Temparature: {{device.temperature}}
+    </div>
+    
+</div>
+{% endfor %}
+</body>
+</html>
